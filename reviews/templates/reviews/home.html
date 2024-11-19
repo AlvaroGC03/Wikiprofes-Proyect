@@ -1,31 +1,15 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio - Wikiprofes</title>
-</head>
-<body>
-    <!-- Barra de navegación -->
-    <nav>
-        <div>
-            {% if user.is_authenticated %}
-            <form method="post" action="{% url 'logout' %}" style="display:inline;">
-                {% csrf_token %}
-                <button type="submit">Logout</button>
-            </form>
-            {% else %}
-                <a href="{% url 'login' %}">Login</a>
-            {% endif %}
-        </div>
-    </nav>
+<!-- templates/index.html -->
+{% extends "base.html" %}
 
-    <!-- Contenido principal -->
-    <div>
-        <form method="GET" action="{% url 'home' %}">
-            <input type="text" name="q" placeholder="Busca materias o profesores..." value="{{ query }}">
-            <button type="submit">Buscar</button>
-        </form>
-    </div>
-</body>
-</html>
+{% block title %}
+Inicio - Wikiprofes
+{% endblock %}
+
+{% block content %}
+<div>
+    <form method="GET" action="{% url 'home' %}">
+        <input type="text" name="q" placeholder="Busca materias o profesores..." value="{{ query }}">
+        <button type="submit">Buscar</button>
+    </form>
+</div>
+{% endblock %}
