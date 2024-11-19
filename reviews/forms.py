@@ -6,12 +6,43 @@ class ReviewForm(forms.ModelForm): #Creamos la clase ReviewForm que hereda de fo
         model = Review
         fields = ['profesor', 'materia', 'comentario', 'dominio', 'puntualidad', 'asistencia', 'dificultad', 'seguimiento'] #Definimos los campos que se mostrarán en el formulario
         widgets = {
-            'doimnio': forms.NumberInput(attrs={'min': 1, 'max': 5}),
+            'dominio': forms.NumberInput(attrs={'min': 1, 'max': 5}),
             'puntualidad': forms.NumberInput(attrs={'min': 1, 'max': 5}),
             'asistencia': forms.NumberInput(attrs={'min': 1, 'max': 5}),
             'dificultad': forms.NumberInput(attrs={'min': 1, 'max': 5}),
             'seguimiento': forms.NumberInput(attrs={'min': 1, 'max': 5}),
         }
+
+    # Validación personalizada para campos numéricos
+    def clean_dominio(self):
+        dominio = self.cleaned_data.get('dominio')
+        if dominio < 1 or dominio > 5:
+            raise forms.ValidationError("El dominio debe estar entre 1 y 5.")
+        return dominio
+
+    def clean_puntualidad(self):
+        puntualidad = self.cleaned_data.get('puntualidad')
+        if puntualidad < 1 or puntualidad > 5:
+            raise forms.ValidationError("La puntualidad debe estar entre 1 y 5.")
+        return puntualidad
+
+    def clean_asistencia(self):
+        asistencia = self.cleaned_data.get('asistencia')
+        if asistencia < 1 or asistencia > 5:
+            raise forms.ValidationError("La asistencia debe estar entre 1 y 5.")
+        return asistencia
+
+    def clean_dificultad(self):
+        dificultad = self.cleaned_data.get('dificultad')
+        if dificultad < 1 or dificultad > 5:
+            raise forms.ValidationError("La dificultad debe estar entre 1 y 5.")
+        return dificultad
+
+    def clean_seguimiento(self):
+        seguimiento = self.cleaned_data.get('seguimiento')
+        if seguimiento < 1 or seguimiento > 5:
+            raise forms.ValidationError("El seguimiento debe estar entre 1 y 5.")
+        return seguimiento
 
 class ProfesorForm(forms.ModelForm):
     class Meta:
