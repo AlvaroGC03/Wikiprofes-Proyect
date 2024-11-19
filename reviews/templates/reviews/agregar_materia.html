@@ -1,0 +1,15 @@
+<!-- templates/reviews/add_subject.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Add Subject</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.nombre.label_tag }} {{ form.nombre }}  <!-- Campo de nombre de la materia -->
+    
+    <h3>Select Professors:</h3>
+    {{ form.profesores }}  <!-- Campo de selección múltiple para profesores -->
+
+    <button type="submit">Add Subject</button>
+</form>
+{% endblock %}

@@ -1,0 +1,24 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wikiprofes</title>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'registro' %}">Registro</a>
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'logout' %}">Logout</a>
+        {% if user.if_autheticated %}
+            <a href="{% url 'crear_review' %}">Crear Reseña</a>
+            {% if user.is_staff %}
+                <a href="{% url 'agregar_materia' %}">Agregar Materia</a>
+                <a href="{% url 'agregar_profesor' %}">Agregar Profesor</a>
+            {% endif %}
+        {% endif %}
+    </nav>
+    {% block content %}{% endblock %}
+</body>
+</html>
