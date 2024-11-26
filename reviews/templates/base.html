@@ -24,6 +24,7 @@
                     <button type="submit">Logout</button>
                 </form>
             {% else %}
+                <a href="{% url 'lista_profesores' %}">Profesores</a>
                 <a href="{% url 'registro' %}">Registro</a>
                 <a href="{% url 'login' %}">Login</a>
             {% endif %}

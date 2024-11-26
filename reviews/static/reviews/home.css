@@ -4,7 +4,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh; /* Altura completa de la ventana */
+    /*height: 100vh;  Altura completa de la ventana */
     text-align: center;
 }
 
@@ -27,9 +27,8 @@
     border: none;
     border-radius: 8px; /* Bordes redondeados */
     cursor: pointer;
-    font-family: Arial, sans-serif;
 }
 
 .search-button:hover {
-    background-color: #3367D6; /* Azul más oscuro */
+    background-color: #1d4f73; /* Cambia el color al pasar el ratón */
 }

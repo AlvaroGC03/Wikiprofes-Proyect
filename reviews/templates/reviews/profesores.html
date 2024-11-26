@@ -1,0 +1,16 @@
+<!-- templates/profesores.html -->
+{% extends "base.html" %}
+{% block title %}Lista de Profesores{% endblock %}
+
+{% block content %}
+<h1>Lista de Profesores</h1>
+<ul>
+    {% for profesor in profesores %}
+        <li>
+            <a href="{% url 'perfil_profesor' profesor.id %}">{{ profesor.nombre }}</a>
+        </li>
+    {% empty %}
+        <li>No hay profesores registrados.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

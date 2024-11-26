@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect 
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User #Importamos el modelo de usuario de Django
 from django.contrib.auth.forms import UserCreationForm #Importamos el formulario de creación de usuario de Django
 from django.contrib import messages #Importamos el módulo de mensajes de Django
@@ -68,3 +68,11 @@ def agregar_materia(request):
 def home(request):
     query = request.GET.get('q', '')  # Captura el texto ingresado en la barra de búsqueda
     return render(request, 'reviews/home.html', {'query': query})
+
+def lista_profesores(request):
+    profesores = Profesor.objects.all()  # Obtener todos los profesores
+    return render(request, 'reviews/profesores.html', {'profesores': profesores})
+
+def perfil_profesor(request, profesor_id):
+    profesor = get_object_or_404(Profesor, id=profesor_id)
+    return render(request, 'reviews/perfil_profesor.html', {'profesor': profesor})
