@@ -1,0 +1,61 @@
+/* Estilos para la página*/
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5; /* Fondo gris claro */
+    color: #333; /* Texto oscuro */
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor del formulario */
+form {
+    width: 300px; /* Ancho del formulario */
+    margin: 0 auto; /* Centra horizontalmente */
+    padding: 20px;
+    border: 1px solid #ccc; /* Borde gris */
+    border-radius: 10px; /* Bordes redondeados */
+    background-color: #ffffff; /* Fondo blanco */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Título de la página */
+h2 {
+    text-align: center; /* Centra el texto */
+    color: #235D87; /* Azul oscuro */
+    margin-bottom: 20px;
+}
+
+/* Etiquetas del formulario */
+label {
+    display: block; /* Cada etiqueta en una línea */
+    font-weight: bold; /* Negrita */
+    margin-bottom: 5px; /* Espacio entre etiqueta y campo */
+}
+
+/* Campos de entrada */
+input[type="text"], input[type="password"] {
+    width: 100%; /* Ancho completo */
+    padding: 10px; /* Espaciado interno */
+    margin-bottom: 15px; /* Espacio entre campos */
+    border: 1px solid #ccc; /* Borde gris */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 14px; /* Tamaño de fuente */
+    box-sizing: border-box; /* Incluye el padding en el ancho */
+}
+
+/* Botón de login */
+button {
+    width: 100%; /* Botón a lo ancho del formulario */
+    padding: 10px;
+    background-color: #235D87; /* Azul oscuro */
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3367D6; /* Azul más claro */
+}

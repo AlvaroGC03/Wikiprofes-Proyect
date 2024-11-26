@@ -1,15 +1,18 @@
-<!-- templates/index.html -->
 {% extends "base.html" %}
-
+{% load static %}
 {% block title %}
 Inicio - Wikiprofes
 {% endblock %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'reviews/home.css' %}">
+{% endblock %}
+
 {% block content %}
-<div>
+<div class="search-container">
     <form method="GET" action="{% url 'home' %}">
-        <input type="text" name="q" placeholder="Busca materias o profesores..." value="{{ query }}">
-        <button type="submit">Buscar</button>
+        <input type="text" name="q" placeholder="Busca materias o profesores..." value="{{ query }}" class="search-bar">
+        <button type="submit" class="search-button">Buscar</button>
     </form>
 </div>
 {% endblock %}

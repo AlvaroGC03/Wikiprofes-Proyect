@@ -1,0 +1,35 @@
+/* Estilos para la barra de búsqueda */
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Altura completa de la ventana */
+    text-align: center;
+}
+
+.search-bar {
+    width: 70%; /* Aumenta el ancho de la barra de búsqueda */
+    padding: 15px; /* Incrementa el tamaño del padding */
+    font-size: 18px; /* Texto más grande */
+    border: 3px solid #235D87; /* Bordes más gruesos */
+    border-radius: 8px; /* Bordes redondeados */
+    outline: none;
+    margin-bottom: 20px; /* Más espacio entre la barra y el botón */
+}
+
+.search-button {
+    width: 30%; /* Más ancho para el botón */
+    padding: 15px; /* Incrementa el tamaño del padding */
+    font-size: 16px; /* Texto más grande */
+    color: white;
+    background-color: #235D87; /* Azul oscuro */
+    border: none;
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+}
+
+.search-button:hover {
+    background-color: #3367D6; /* Azul más oscuro */
+}

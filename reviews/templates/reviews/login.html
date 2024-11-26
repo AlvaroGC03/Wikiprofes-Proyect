@@ -1,5 +1,11 @@
 <!-- templates/reviews/login.html --> <!--Plantilla para el formulario de login-->
 {% extends "base.html" %} <!--Hereda de la plantilla base.html-->
+{% load static %} <!--Carga los archivos estáticos-->
+
+{% block title %}Login - Wikiprofes{% endblock %} <!--Define el título de la página-->
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'reviews/login.css' %}">
+{% endblock %}
 
 {% block content %}
 <h2>Login</h2>
