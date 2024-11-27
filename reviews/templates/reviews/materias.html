@@ -1,0 +1,16 @@
+<!-- templates/materias.html -->
+{% extends "base.html" %}
+{% block title %}Lista de Materias{% endblock %}
+
+{% block content %}
+<h1>Lista de Materias</h1>
+<ul>
+    {% for materia in materias %}
+        <li>
+            <a href="{% url 'perfil_materia' materia.id %}">{{ materia.nombre }}</a>
+        </li>
+    {% empty %}
+        <li>No hay materias registradas.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

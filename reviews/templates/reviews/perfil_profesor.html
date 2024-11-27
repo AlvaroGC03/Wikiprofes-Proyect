@@ -4,5 +4,44 @@
 
 {% block content %}
 <h1>Perfil de {{ profesor.nombre }}</h1>
-<p>Aquí irá la información detallada del profesor.</p>
+
+<!-- Mostrar los promedios -->
+<div>
+    <h2>Calificaciones Promedio</h2>
+    <p><strong>Calificación General:</strong> {{ promedio_general|floatformat:2 }}</p>
+    <ul>
+        <li><strong>Dominio:</strong> {{ promedio_dominio|floatformat:2 }}</li>
+        <li><strong>Puntualidad:</strong> {{ promedio_puntualidad|floatformat:2 }}</li>
+        <li><strong>Asistencia:</strong> {{ promedio_asistencia|floatformat:2 }}</li>
+        <li><strong>Dificultad:</strong> {{ promedio_dificultad|floatformat:2 }}</li>
+        <li><strong>Seguimiento:</strong> {{ promedio_seguimiento|floatformat:2 }}</li>
+    </ul>
+</div>
+
+<!-- Mostrar las reseñas -->
+<div>
+    <h2>Reseñas</h2>
+    {% if reviews %}
+        <ul>
+            {% for review in reviews %}
+            <li>
+                <p><strong>Usuario:</strong> {{ review.user }}</p>
+                <p><strong>Materia:</strong> {{ review.materia.nombre }}</p>
+                <p><strong>Comentario:</strong> {{ review.comentario }}</p>
+                <p><strong>Fecha:</strong> {{ review.fecha }}</p>
+                <p><strong>Calificaciones:</strong></p>
+                <ul>
+                    <li>Dominio: {{ review.dominio }}</li>
+                    <li>Puntualidad: {{ review.puntualidad }}</li>
+                    <li>Asistencia: {{ review.asistencia }}</li>
+                    <li>Dificultad: {{ review.dificultad }}</li>
+                    <li>Seguimiento: {{ review.seguimiento }}</li>
+                </ul>
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hay reseñas disponibles para este profesor.</p>
+    {% endif %}
+</div>
 {% endblock %}

@@ -12,5 +12,7 @@ urlpatterns = [
     path('profesor/agregar/', views.agregar_profesor, name='agregar_profesor'), #Ruta para la creación de profesores
     path('materia/agregar/', views.agregar_materia, name='agregar_materia'), #Ruta para la creación de materias
     path('profesores/', views.lista_profesores, name='lista_profesores'), #Ruta para la lista de profesores
-    path('profesor/<int:profesor_id>/', views.perfil_profesor, name='perfil_profesor'), #Ruta para el perfil de un profesor
+    path('profesor/<int:profesor_id>/', views.perfil_profesor, name='perfil_profesor'),
+    path('materias/', views.lista_materias, name='lista_materias'),
+    path('materia/<int:materia_id>/', views.perfil_materia, name='perfil_materia'), #Ruta para el perfil de un profesor
 ]

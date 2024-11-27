@@ -1,0 +1,30 @@
+<!-- templates/perfil_materia.html -->
+{% extends "base.html" %}
+{% block title %}Perfil de {{ materia.nombre }}{% endblock %}
+
+{% block content %}
+<h1>Perfil de {{ materia.nombre }}</h1>
+
+<h2>Reseñas relacionadas</h2>
+{% if reviews %}
+    <ul>
+        {% for review in reviews %}
+            <li>
+                <p><strong>Profesor:</strong> {{ review.profesor.nombre }}</p>
+                <p><strong>Comentario:</strong> {{ review.comentario }}</p>
+                <p><strong>Fecha:</strong> {{ review.fecha }}</p>
+                <p><strong>Calificaciones:</strong></p>
+                <ul>
+                    <li>Dominio: {{ review.dominio }}</li>
+                    <li>Puntualidad: {{ review.puntualidad }}</li>
+                    <li>Asistencia: {{ review.asistencia }}</li>
+                    <li>Dificultad: {{ review.dificultad }}</li>
+                    <li>Seguimiento: {{ review.seguimiento }}</li>
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay reseñas relacionadas con esta materia.</p>
+{% endif %}
+{% endblock %}

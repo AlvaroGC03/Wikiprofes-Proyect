@@ -1,5 +1,10 @@
 <!-- templates/reviews/register.html --> <!--Plantilla para el formulario de registro-->
 {% extends "base.html" %}  <!--Hereda de la plantilla base.html-->
+{% load static %} <!--Carga los archivos estáticos-->
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'global/register.css' %}">
+{% endblock %}
 
 {% block content %}
 <h2>Registro</h2>

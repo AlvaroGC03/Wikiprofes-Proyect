@@ -6,13 +6,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Wikiprofes{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'reviews/base.css' %}">
+    <link rel="stylesheet" href="{% static 'global/base.css' %}">
     {% block extra_css %}{% endblock %}
 </head>
 <body>
     <!-- Barra de navegación -->
     <nav>
         <div class="nav-right">
+            <a href="{% url 'home' %}">Inicio</a>
+            <a href="{% url 'lista_profesores' %}">Profesores</a>
+            <a href="{% url 'lista_materias' %}">Materias</a>
             {% if user.is_authenticated %}
                 <a href="{% url 'crear_review' %}">Crear Reseña</a>
                 {% if user.is_staff %}
@@ -24,7 +27,6 @@
                     <button type="submit">Logout</button>
                 </form>
             {% else %}
-                <a href="{% url 'lista_profesores' %}">Profesores</a>
                 <a href="{% url 'registro' %}">Registro</a>
                 <a href="{% url 'login' %}">Login</a>
             {% endif %}

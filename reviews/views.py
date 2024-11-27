@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required #Importamos el decorad
 from .models import Review, Profesor, Materia #Importamos el modelo Review
 from .forms import ReviewForm, ProfesorForm, MateriaForm #Importamos el formulario ReviewForm
 from django.contrib.admin.views.decorators import staff_member_required #Importamos el decorador de staff de Django
+from django.db.models import Avg
 
 
 def registro(request):
@@ -74,5 +75,61 @@ def lista_profesores(request):
     return render(request, 'reviews/profesores.html', {'profesores': profesores})
 
 def perfil_profesor(request, profesor_id):
+    # Obtener el profesor por su ID
     profesor = get_object_or_404(Profesor, id=profesor_id)
-    return render(request, 'reviews/perfil_profesor.html', {'profesor': profesor})
+
+    # Obtener todas las reseñas del profesor
+    reviews = profesor.reviews.all()
+
+    if reviews.exists():
+        # Calcular el promedio general y el promedio por rubro
+        promedio_general = (
+            reviews.aggregate(
+                avg_general=(
+                    Avg('dominio') +
+                    Avg('puntualidad') +
+                    Avg('asistencia') +
+                    Avg('dificultad') +
+                    Avg('seguimiento')
+                ) / 5
+            )['avg_general']
+        )
+        promedio_dominio = reviews.aggregate(Avg('dominio'))['dominio__avg']
+        promedio_puntualidad = reviews.aggregate(Avg('puntualidad'))['puntualidad__avg']
+        promedio_asistencia = reviews.aggregate(Avg('asistencia'))['asistencia__avg']
+        promedio_dificultad = reviews.aggregate(Avg('dificultad'))['dificultad__avg']
+        promedio_seguimiento = reviews.aggregate(Avg('seguimiento'))['seguimiento__avg']
+    else:
+        # Si no hay reseñas, asignar 0 como promedio
+        promedio_general = 0
+        promedio_dominio = 0
+        promedio_puntualidad = 0
+        promedio_asistencia = 0
+        promedio_dificultad = 0
+        promedio_seguimiento = 0
+
+    # Pasar los datos al template
+    context = {
+        'profesor': profesor,
+        'reviews': reviews,
+        'promedio_general': promedio_general,
+        'promedio_dominio': promedio_dominio,
+        'promedio_puntualidad': promedio_puntualidad,
+        'promedio_asistencia': promedio_asistencia,
+        'promedio_dificultad': promedio_dificultad,
+        'promedio_seguimiento': promedio_seguimiento,
+    }
+
+    return render(request, 'reviews/perfil_profesor.html', context)
+
+def lista_materias(request):
+    materias = Materia.objects.all()
+    return render(request, 'reviews/materias.html', {'materias': materias})
+
+def perfil_materia(request, materia_id):
+    materia = get_object_or_404(Materia, id=materia_id)
+    reviews = materia.reviews.all()
+    return render(request, 'reviews/perfil_materia.html', {
+        'materia': materia,
+        'reviews': reviews,
+    })
