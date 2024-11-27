@@ -10,6 +10,7 @@
     <ul>
         {% for review in reviews %}
             <li>
+                <p><strong>Usuario:</strong> {{ review.user }}</p>
                 <p><strong>Profesor:</strong> {{ review.profesor.nombre }}</p>
                 <p><strong>Comentario:</strong> {{ review.comentario }}</p>
                 <p><strong>Fecha:</strong> {{ review.fecha }}</p>

@@ -1,16 +1,18 @@
-<!-- templates/reviews/register.html --> <!--Plantilla para el formulario de registro-->
-{% extends "base.html" %}  <!--Hereda de la plantilla base.html-->
-{% load static %} <!--Carga los archivos estáticos-->
+<!-- templates/reviews/register.html -->
+{% extends "base.html" %} <!-- Hereda de la plantilla base.html -->
+{% load static %} <!-- Carga los archivos estáticos -->
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'global/register.css' %}">
 {% endblock %}
 
 {% block content %}
-<h2>Registro</h2>
-<form method="post"> <!--Formulario para el registro de usuarios-->
-    {% csrf_token %} <!--Token de seguridad-->
-    {{ form.as_p }}    <!--Muestra el formulario de registro-->
-    <button type="submit">Registrarse</button> <!--Botón para enviar el formulario-->
-</form>
+<div class="register-container">
+    <h2>Registro</h2>
+    <form method="post" class="register-form"> <!--Formulario para el registro de usuarios-->
+        {% csrf_token %} <!--Token de seguridad-->
+        {{ form.as_p }}    <!--Muestra el formulario de registro-->
+        <button type="submit">Registrarse</button> <!--Botón para enviar el formulario-->
+    </form>
+</div>
 {% endblock %}

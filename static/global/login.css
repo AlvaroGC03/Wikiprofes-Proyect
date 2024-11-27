@@ -1,95 +1,61 @@
-/* Import Google Font - Poppins */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
-
-/* CSS GENERAL */
-* {
+/* Estilos para la página de login */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5; /* Fondo gris claro */
+    color: #333; /* Texto oscuro */
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
 }
 
-body {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /*background: #4070f4;*/ 
+/* Contenedor del formulario */
+form {
+    width: 300px; /* Ancho del formulario */
+    margin: 0 auto; /* Centra horizontalmente */
+    padding: 20px;
+    border: 1px solid #ccc; /* Borde gris */
+    border-radius: 10px; /* Bordes redondeados */
+    background-color: #ffffff; /* Fondo blanco */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
 }
 
-/* FORMULARIO */
-.container {
-    position: relative;
-    max-width: 1000px;
-    width: 100%;
-    border-radius: 6px;
-    padding: 20px 30px;
-    margin: 20px;
-    background-color: #fff; 
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
-    text-align: center;
-}
-
-.container h2 {
-    font-size: 24px;
-    font-weight: 600;
-    color: #4070f4;
+/* Título de la página */
+h2 {
+    text-align: center; /* Centra el texto */
+    color: #235D87; /* Azul oscuro */
     margin-bottom: 20px;
-    text-align: center;
 }
 
-/* FORMULARIO DE LOGIN */
-.login-formulario {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    align-items: stretch;
+/* Etiquetas del formulario */
+label {
+    display: block; /* Cada etiqueta en una línea */
+    font-weight: bold; /* Negrita */
+    margin-bottom: 5px; /* Espacio entre etiqueta y campo */
 }
 
-.login-formulario label {
-    font-size: 14px;
-    font-weight: 500;
-    color: #333;
-    margin-bottom: 5px;
-    text-align: left;
+/* Campos de entrada */
+input[type="text"], input[type="password"] {
+    width: 100%; /* Ancho completo */
+    padding: 10px; /* Espaciado interno */
+    margin-bottom: 15px; /* Espacio entre campos */
+    border: 1px solid #ccc; /* Borde gris */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 14px; /* Tamaño de fuente */
+    box-sizing: border-box; /* Incluye el padding en el ancho */
 }
 
-.login-formulario input {
-    width: 100%;
-    height: 40px;
-    padding: 0 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-    transition: border-color 0.3s;
-}
-
-.login-formulario input:focus {
-    border-color: #4070f4;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-}
-
-.login-formulario button {
-    height: 45px;
-    border: none;
-    background-color: #4070f4;
+/* Botón de login */
+button {
+    width: 100%; /* Botón a lo ancho del formulario */
+    padding: 10px;
+    background-color: #235D87; /* Azul oscuro */
     color: white;
     font-size: 16px;
-    font-weight: 500;
-    border-radius: 5px;
+    font-weight: bold;
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
-.login-formulario button:hover {
-    background-color: #265df2; /* Azul más oscuro */
-}
-
-@media (max-width: 750px) {
-    .container {
-        padding: 15px 20px;
-    }
-    .login-formulario {
-        gap: 12px;
-    }
+button:hover {
+    background-color: #3367D6; /* Azul más claro */
 }
