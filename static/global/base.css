@@ -49,6 +49,27 @@ nav {
     background-color: #3367D6;
 }
 
+/* Estilos para la sección de información del usuario */
+nav .user-info {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    color: white; /* Texto blanco */
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+nav .user-info svg {
+    width: 50px; /* Tamaño del ícono */
+    height: 50px;
+    margin-right: 5px; /* Espacio entre el ícono y el nombre */
+    color: white; /* Ícono en blanco */
+}
+
+nav .user-info .username {
+    font-weight: bold;
+}
+
 /* Estilos generales */
 body {
     font-family: 'Arial', sans-serif;

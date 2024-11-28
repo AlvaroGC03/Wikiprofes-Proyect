@@ -15,4 +15,56 @@ Inicio - Wikiprofes
         <button type="submit" class="search-button">Buscar</button>
     </form>
 </div>
+
+{% if query %}
+    <!-- Mostrar resultados de búsqueda -->
+    <div class="search-results">
+        <h2>Resultados de búsqueda para "{{ query }}":</h2>
+        <ul>
+            <!-- Profesores encontrados -->
+            {% for profesor in resultados_profesores %}
+                <li>
+                    <a href="{% url 'perfil_profesor' profesor.id %}">{{ profesor.nombre }}</a>
+                </li>
+            {% empty %}
+                <!-- Si no se encuentran profesores -->
+                <p>No se encontraron profesores relacionados con "{{ query }}".</p>
+            {% endfor %}
+            
+            <!-- Materias encontradas -->
+            {% for materia in resultados_materias %}
+                <li>
+                    <a href="{% url 'perfil_materia' materia.id %}">{{ materia.nombre }}</a>
+                </li>
+            {% empty %}
+                <!-- Si no se encuentran materias -->
+                <p>No se encontraron materias relacionadas con "{{ query }}".</p>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Línea separadora -->
+    <hr class="divider">
+
+    <!-- Listas completas -->
+    <div class="full-lists">
+        <h2>Lista completa de Profesores</h2>
+        <ul>
+            {% for profesor in profesores %}
+                <li>
+                    <a href="{% url 'perfil_profesor' profesor.id %}">{{ profesor.nombre }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <h2>Lista completa de Materias</h2>
+        <ul>
+            {% for materia in materias %}
+                <li>
+                    <a href="{% url 'perfil_materia' materia.id %}">{{ materia.nombre }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
 {% endblock %}
