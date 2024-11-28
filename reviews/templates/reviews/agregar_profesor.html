@@ -11,9 +11,9 @@
         <!-- Título -->
         <h2 class="mb-4 text-primary">Agregar Profesor</h2>
 
-        <!-- Ícono de usuario colorido -->
+        <!-- Ícono de profesor -->
         <div class="mb-4">
-            <i class="fas fa-user-circle" style="font-size: 70px; color: #2c609b;"></i>
+            <i class="fas fa-chalkboard-teacher" style="font-size: 70px; color: #2c609b;"></i>
         </div>
 
         <!-- Formulario -->
@@ -33,7 +33,7 @@
     /* Estilo personalizado para el botón */
     .custom-btn {
         background-color: #2c609b; 
-        color: white;
+        color: white; 
         border: none; 
         border-radius: 5px; 
         padding: 8px 20px; 
@@ -48,6 +48,7 @@
         background-color: #1e4a75; 
     }
 
+    /* Estilo del contenedor principal para centrar todo, pero más cerca de la parte superior */
     .d-flex {
         display: flex;
         justify-content: center; 
@@ -57,9 +58,14 @@
         text-align: center;
     }
 
+    /* Elimina márgenes y asegura que la página ocupe toda la altura */
     body {
         margin: 0;
         height: 100%; 
+    }
+
+    label {
+        font-weight: bold; 
     }
 
 </style>
