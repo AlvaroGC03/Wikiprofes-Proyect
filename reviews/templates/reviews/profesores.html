@@ -1,16 +1,112 @@
 <!-- templates/profesores.html -->
 {% extends "base.html" %}
+
 {% block title %}Lista de Profesores{% endblock %}
 
 {% block content %}
-<h1>Lista de Profesores</h1>
-<ul>
-    {% for profesor in profesores %}
-        <li>
-            <a href="{% url 'perfil_profesor' profesor.id %}">{{ profesor.nombre }}</a>
-        </li>
-    {% empty %}
-        <li>No hay profesores registrados.</li>
-    {% endfor %}
-</ul>
+<div class="container my-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="text-primary">Lista de Profesores</h1>
+        <!-- Botón para agregar nuevo profesor -->
+        <a href="{% url 'agregar_profesor' %}" class="btn btn-success">
+            <i class="fas fa-plus-circle"></i> Agregar un Nuevo Profesor
+        </a>
+    </div>
+
+    <!-- Barra de búsqueda -->
+    <div class="mb-4">
+        <input type="text" class="form-control" id="searchProfesor" placeholder="Buscar Profesor..."
+            onfocus="this.style.boxShadow='0 0 10px rgba(0, 123, 255, 0.5)';"
+            onblur="this.style.boxShadow='none';">
+    </div>
+
+    <!-- Mensaje de alerta si no hay resultados -->
+    <div id="noResultsAlert" class="alert alert-warning" role="alert" style="display: none;">
+        No se han encontrado resultados. Intenta con otro nombre.
+    </div>
+
+    <!-- Tarjetas de profesores -->
+    <div class="row">
+        {% for profesor in profesores %}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-lg">
+                <div class="card-body text-center">
+                    <i class="fas fa-book" style="font-size: 50px; color: #2c609b;"></i>
+                    <h5 class="card-title mt-3">{{ profesor.nombre }}</h5>
+                    <p class="card-text">{{ profesor.departamento }}</p>
+                    <a href="{% url 'perfil_profesor' profesor.id %}" class="btn btn-primary">Ver Perfil</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12 text-center text-warning">
+            No hay profesores registrados.
+        </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}
+
+<style>
+    body {
+        background: url('https://www.transparenttextures.com/patterns/white-diamond-pattern.png');
+        background-color: #f4f6f9;
+    }
+
+    /* Estilo para las tarjetas */
+    .card {
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .card-title {
+        font-weight: bold;
+    }
+
+    .form-control {
+        font-size: 16px;
+        transition: box-shadow 0.3s ease;
+    }
+
+    .form-control:focus {
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    }
+
+    .table a, .card a {
+        text-decoration: none;
+        color: #2c609b;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+    .table a:hover, .card a:hover {
+        color: #1e4a75;
+    }
+
+    .btn-success:hover, .btn-primary:hover {
+        background-color: #1e4a75;
+        transform: translateY(-3px);
+    }
+
+    /* Alerta de no resultados */
+    .alert {
+        transition: opacity 0.3s ease;
+    }
+
+    .table-container {
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+    .table th, .table td {
+        vertical-align: middle;
+        padding: 15px;
+        font-size: 16px;
+    }
+</style>
