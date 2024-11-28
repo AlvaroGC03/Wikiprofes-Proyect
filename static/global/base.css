@@ -7,6 +7,18 @@ nav {
     align-items: center;
 }
 
+.nav-left {
+    display: flex;
+    align-items: center; /* Centra verticalmente el logo */
+    justify-content: flex-start; /* Asegura la alineación a la izquierda */
+}
+
+.nav-logo {
+    width: 250px; /* Ajusta el tamaño del logo */
+    height: auto; /* Mantiene la proporción */
+    margin-right: 15px; /* Espacio entre el logo y los demás elementos */
+}
+
 .nav-right {
     display: flex;
     align-items: center;

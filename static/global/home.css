@@ -1,3 +1,16 @@
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; /* Espacio entre la imagen y la barra de búsqueda */
+}
+
+.centered-image {
+    max-width: 500px; /* Ajusta el tamaño máximo de la imagen */
+    height: auto;
+    border-radius: 8px; /* Opcional: bordes redondeados */
+}
+
 /* Estilos para la barra de búsqueda */
 .search-container {
     display: flex;
@@ -32,3 +45,4 @@
 .search-button:hover {
     background-color: #1d4f73; /* Cambia el color al pasar el ratón */
 }
+

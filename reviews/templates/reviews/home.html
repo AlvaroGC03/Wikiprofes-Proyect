@@ -9,6 +9,10 @@ Inicio - Wikiprofes
 {% endblock %}
 
 {% block content %}
+<div class="image-container">
+    <img src="{% static 'global/logo_blanco_copia.png' %}" alt="Logo de WikiProfes" class="centered-image">
+</div>
+
 <div class="search-container">
     <form method="GET" action="{% url 'home' %}">
         <input type="text" name="q" placeholder="Busca materias o profesores..." value="{{ query }}" class="search-bar">
