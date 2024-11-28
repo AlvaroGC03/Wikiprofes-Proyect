@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required #Importamos el decorad
 from .models import Review, Profesor, Materia #Importamos el modelo Review
 from .forms import ReviewForm, ProfesorForm, MateriaForm #Importamos el formulario ReviewForm
 from django.contrib.admin.views.decorators import staff_member_required #Importamos el decorador de staff de Django
-from django.db.models import Avg
+from django.db.models import Avg, Q
 
 
 def registro(request):
@@ -68,8 +68,30 @@ def agregar_materia(request):
 
 def home(request):
     query = request.GET.get('q', '')  # Captura el texto ingresado en la barra de búsqueda
-    return render(request, 'reviews/home.html', {'query': query})
 
+    # Obtener las listas completas de profesores y materias
+    profesores = Profesor.objects.all()
+    materias = Materia.objects.all()
+
+    # Inicializar resultados de búsqueda
+    resultados_profesores = []
+    resultados_materias = []
+
+    if query:
+        # Realizar la búsqueda si hay un término
+        resultados_profesores = profesores.filter(nombre__icontains=query)
+        resultados_materias = materias.filter(nombre__icontains=query)
+
+    # Pasar todos los datos al contexto
+    context = {
+        'query': query,
+        'resultados_profesores': resultados_profesores,
+        'resultados_materias': resultados_materias,
+        'profesores': profesores,  # Asegurarnos de incluir siempre la lista completa
+        'materias': materias,      # Asegurarnos de incluir siempre la lista completa
+    }
+
+    return render(request, 'reviews/home.html', context)
 def lista_profesores(request):
     profesores = Profesor.objects.all()  # Obtener todos los profesores
     return render(request, 'reviews/profesores.html', {'profesores': profesores})
