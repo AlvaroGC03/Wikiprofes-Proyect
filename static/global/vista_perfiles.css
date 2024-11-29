@@ -1,0 +1,100 @@
+h1, h2 {
+    text-align: center;
+    color: #1a75cf; /* Azul intermedio */
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+h1 {
+    margin-top: 30px;
+    font-size: 28px;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+/* SECCIÓN DE PROMEDIOS */
+div > h2 {
+    margin-top: 20px;
+}
+
+div > p, div > ul {
+    max-width: 800px;
+    margin: 10px auto 20px;
+    padding: 20px;
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+/* LISTA DE RESEÑAS */
+div ul {
+    list-style: none; /* Quitar estilo de lista */
+    padding: 0;
+}
+
+div ul li {
+    background-color: #ffffff; /* Fondo blanco */
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+div ul li p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+div ul li ul {
+    list-style: none; /* Quitar estilo de lista */
+    margin-top: 10px;
+    padding: 0;
+}
+
+div ul li ul li {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+/* TEXTO Y ENLACES */
+strong {
+    color: #1a75cf; /* Azul intermedio */
+}
+
+p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #555; /* Gris oscuro */
+}
+
+/* MENSAJE SI NO HAY RESEÑAS */
+div > p {
+    text-align: center;
+    font-style: italic;
+    color: #999; /* Gris claro */
+}
+
+/* RESPONSIVIDAD */
+@media (max-width: 600px) {
+    div > p, div > ul {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    div ul li {
+        padding: 15px;
+    }
+}

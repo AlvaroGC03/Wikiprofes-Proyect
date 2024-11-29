@@ -2,6 +2,13 @@
 {% extends "base.html" %}
 {% block title %}Lista de Materias{% endblock %}
 
+
+{% load static %} <!-- Carga los archivos estáticos -->
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'global/vista_global.css' %}">
+{% endblock %}
+
 {% block content %}
 <h1>Lista de Materias</h1>
 <ul>

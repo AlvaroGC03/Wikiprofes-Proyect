@@ -1,0 +1,62 @@
+h1 {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a75cf; /* Azul intermedio */
+}
+
+/* LISTA DE PROFESORES */
+ul {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0;
+    list-style: none; /* Quitar estilo de lista */
+}
+
+ul li {
+    background-color: #ffffff; /* Fondo blanco */
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+ul li:hover {
+    transform: translateY(-3px); /* Mover hacia arriba al pasar el mouse */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Intensificar sombra */
+}
+
+/* ENLACES A LOS PROFESORES */
+ul li a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #1a75cf; /* Azul intermedio */
+    font-weight: 600;
+}
+
+ul li a:hover {
+    color: #145a9e; /* Azul más oscuro */
+}
+
+/* MENSAJE SI NO HAY PROFESORES */
+ul li:last-child {
+    color: #999; /* Texto gris claro */
+    font-style: italic;
+}
+
+/* RESPONSIVIDAD */
+@media (max-width: 600px) {
+    ul li {
+        padding: 10px 15px;
+    }
+
+    ul li a {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}

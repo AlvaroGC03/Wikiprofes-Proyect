@@ -46,3 +46,84 @@
     background-color: #1d4f73; /* Cambia el color al pasar el ratón */
 }
 
+/* Estilo para los resultados de búsqueda */
+.search-results {
+    margin-top: 30px; /* Espaciado con respecto a la barra de búsqueda */
+    padding: 20px;
+    background-color: #f5f5f5; /* Fondo gris claro */
+    border: 2px solid #235D87; /* Borde azul oscuro */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.search-results h2 {
+    font-size: 20px;
+    color: #000000; /* Azul oscuro */
+    margin-bottom: 15px;
+}
+
+.search-results ul {
+    list-style: none; /* Sin viñetas */
+    padding: 0;
+}
+
+.search-results li {
+    margin-bottom: 10px; /* Espaciado entre elementos */
+}
+
+.search-results li a {
+    color: #235D87; /* Azul oscuro */
+    text-decoration: none; /* Sin subrayado */
+    font-weight: bold;
+    transition: color 0.3s ease; /* Efecto suave al pasar el ratón */
+}
+
+.search-results li a:hover {
+    color: #1d4f73; /* Azul más oscuro al pasar el ratón */
+}
+
+.search-results p {
+    font-size: 16px;
+    color: #555; /* Texto gris medio */
+    margin-top: 10px;
+}
+
+/* Estilo para la línea separadora */
+.divider {
+    margin: 30px 0; /* Espaciado vertical */
+    border: 1px solid #235D87; /* Línea azul oscuro */
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Estilo para las listas completas */
+.full-lists {
+    margin-top: 20px;
+}
+
+.full-lists h2 {
+    font-size: 20px;
+    color: #000000; /* Azul oscuro */
+    margin-bottom: 15px;
+}
+
+.full-lists ul {
+    list-style: none; /* Sin viñetas */
+    padding: 0;
+}
+
+.full-lists li {
+    margin-bottom: 10px; /* Espaciado entre elementos */
+}
+
+.full-lists li a {
+    color: #235D87; /* Azul oscuro */
+    text-decoration: none; /* Sin subrayado */
+    font-weight: bold;
+    transition: color 0.3s ease; /* Efecto suave al pasar el ratón */
+}
+
+.full-lists li a:hover {
+    color: #1d4f73; /* Azul más oscuro al pasar el ratón */
+}
